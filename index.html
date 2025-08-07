@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сайт-визитка</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="background-animation" id="stars"></div>
+
+    <header class="header">
+        <div class="logo">YourName</div>
+        <div class="contact-info">
+            <span>+7 (999) 123-45-67</span>
+            <span>📧</span><span>💼</span><span>📷</span>
+            <span>Москва, ул. Примерная 123</span>
+        </div>
+    </header>
+
+    <nav class="nav-bar" id="navBar">
+        <ul class="nav-links">
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#advantages">Преимущества</a></li>
+            <li><a href="#skills">Навыки</a></li>
+            <li><a href="#education">Образование</a></li>
+            <li><a href="#experience">Опыт</a></li>
+            <li><a href="#projects">Проекты</a></li>
+        </ul>
+        <div class="theme-toggle">
+            <button class="theme-btn" onclick="toggleThemeMenu()">Тема</button>
+            <div class="theme-dropdown" id="themeMenu">
+                <div class="theme-option" onclick="setTheme('dark')">Тёмно-синяя</div>
+                <div class="theme-option" onclick="setTheme('gray')">Серая</div>
+                <div class="theme-option" onclick="setTheme('light')">Светлая</div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="avatar">👤</div>
+        <h1>Иван Иванов</h1>
+        <p>Веб-разработчик & UI/UX дизайнер</p>
+        <div class="hero-buttons">
+            <button class="btn">Скачать CV</button>
+            <button class="btn btn-outline">Связаться</button>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2>Обо мне</h2>
+        <p>Я опытный веб-разработчик с более чем 5-летним опытом создания современных и функциональных веб-приложений...
+        </p>
+    </section>
+    <section class="section" id="advantages">
+        <h2>Мои преимущества</h2>
+        <div class="advantages-grid">
+            <div class="advantage-card">
+                <h3>⚡ Быстрая разработка</h3>
+                <p>Эффективное использование современных инструментов</p>
+            </div>
+            <div class="advantage-card">
+                <h3>🎯 Внимание к деталям</h3>
+                <p>Качественная реализация сложных дизайнов</p>
+            </div>
+            <div class="advantage-card">
+                <h3>📱 Адаптивность</h3>
+                <p>Отличная работа на всех устройствах</p>
+            </div>
+            <div class="advantage-card">
+                <h3>🤝 Коммуникация</h3>
+                <p>Прозрачный процесс и регулярные обновления</p>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="skills">
+        <h2>Мои навыки</h2>
+        <div class="skills-grid">
+            <div>JavaScript<div class="skill-bar">
+                    <div class="skill-progress" style="width:90%"></div>
+                </div>
+            </div>
+            <div>React<div class="skill-bar">
+                    <div class="skill-progress" style="width:85%"></div>
+                </div>
+            </div>
+            <div>Node.js<div class="skill-bar">
+                    <div class="skill-progress" style="width:80%"></div>
+                </div>
+            </div>
+            <div>CSS/SCSS<div class="skill-bar">
+                    <div class="skill-progress" style="width:95%"></div>
+                </div>
+            </div>
+            <div>UI/UX<div class="skill-bar">
+                    <div class="skill-progress" style="width:75%"></div>
+                </div>
+            </div>
+            <div>Git<div class="skill-bar">
+                    <div class="skill-progress" style="width:90%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="education">
+        <h2>Образование</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Магистр информатики</h3>
+                <p>МГТУ им. Баумана, 2018-2020</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Бакалавр прикладной математики</h3>
+                <p>МГУ им. Ломоносова, 2014-2018</p>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="experience">
+        <h2>Опыт работы</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Старший Frontend разработчик</h3>
+                <p>TechCorp, 2021-настоящее время</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Middle Frontend разработчик</h3>
+                <p>WebStudio, 2019-2021</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Junior Web разработчик</h3>
+                <p>StartUp, 2018-2019</p>
+            </div>
+        </div>
+    </section>
+    <section class="section" id="projects">
+        <h2>Мои проекты</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">Проект 1</div>
+                <h3>E-commerce платформа</h3>
+                <p>Современный онлайн-магазин с React и Node.js</p>
+            </div>
+            <div class="project-card">
+                <div class="project-image">Проект 2</div>
+                <h3>CRM система</h3>
+                <p>Управление клиентами и продажами</p>
+            </div>
+            <div class="project-card">
+                <div class="project-image">Проект 3</div>
+                <h3>Мобильное приложение</h3>
+                <p>React Native приложение для фитнес-трекинга</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 YourName. Все права защищены. Разработано с ❤️</p>
+    </footer>
+
+    <!-- Button to top site -->
+    <button class="scroll-to-top" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <!-- Notification of a topic change -->
+    <div class="theme-notification" id="notification"></div>
+
+    <!-- sprite.svg connection -->
+    <object data="icons/sprite.svg" style="display:none;"></object>
+
+    <!-- script.js connection -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
