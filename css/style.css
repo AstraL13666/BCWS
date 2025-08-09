@@ -1,28 +1,85 @@
+/* ---------- 1. General ---------- */
+:root {
+    /* General color */
+    --bg-dark: radial-gradient(circle at center, #001233 0%, #000814 100%);
+    --bg-light: radial-gradient(circle at center, #ffffff 0%, #f8f9fa 100%);
+    --bg-nav: #00000070;
+
+    /* Gradient color */
+    --gradient-primary: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+
+    /* Color */
+    --accent: #0070ff;
+    --secondary: #4090ff;
+
+    --color-h1: #ffffff;
+    --color-h3: #eeeeee;
+    --color-p: #dddddd;
+
+    --color-card: #45454545;
+    --color-shadow: #50607050;
+
+    --color-svg: #ffffff;
+    --banner: #00000050;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+
     color: #fff;
-    transition: background 1s ease, color .5s ease;
+    transition: background 1s ease,
+        color .5s ease;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
-    background: radial-gradient(circle at center, #001233 0%, #000814 100%);
-}
-
-body.theme-gray {
-    background: radial-gradient(circle at center, #495057 0%, #343a40 100%);
+    background: var(--bg-dark);
+    transition: background-color .35s ease, color .35s ease;
 }
 
 body.theme-light {
-    background: radial-gradient(circle at center, #ffffff 0%, #f8f9fa 100%);
-    color: #000;
+    background: var(--bg-light);
+
+    /* Color */
+    --color-h1: #000000;
+    --color-h3: #080808;
+    --color-p: #2e2e2e;
+
+    --color-card: #45454510;
+    --color-shadow: #50607030;
+
+    --color-svg: #000000;
+    --banner: #00000000;
+
 }
 
+h1 {
+    color: var(--color-h1);
+}
+
+h3 {
+    color: var(--color-h3);
+    padding: 10px 0px;
+}
+
+p {
+    color: var(--color-p);
+}
+
+/* ---------- 2. Stars ---------- */
 .background-animation {
     position: fixed;
     inset: 0;
@@ -48,17 +105,22 @@ body.theme-light {
     }
 }
 
+/* ---------- 3. Header ---------- */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    background: transparent;
+    background: var(--bg-nav);
+    backdrop-filter: blur(1px);
 }
 
 .logo {
-    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-size: 24px;
+    text-decoration: none;
 }
 
 .contact-info {
@@ -68,71 +130,104 @@ body.theme-light {
     font-size: 14px;
 }
 
-/* nav-bar теперь будет фиксироваться */
+.contact-info svg,
+.logo svg {
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.icon-header {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* ---------- 4. Sticky Nav-bar ---------- */
 .nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 5%;
+    padding: 20px 5%;
     border-bottom: 1px solid rgba(255, 255, 255, .15);
     position: sticky;
     top: -1px;
     z-index: 10;
-    background: rgba(0, 0, 0, .3);
-    backdrop-filter: blur(8px);
+    background: var(--bg-nav);
+    backdrop-filter: blur(5px);
 }
 
 .nav-links {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     list-style: none;
 }
 
 .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
     text-decoration: none;
     font-size: 15px;
+    color: var(--text-a);
+    transition: color .3s;
 }
 
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: var(--secondary);
+    transition: width .3s;
+}
+
+.nav-links svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active {
+    color: var(--secondary);
+    width: 100%;
+}
+
+/* ---------- 5. Theme Toggle ---------- */
 .theme-toggle {
     position: relative;
 }
 
-.theme-btn {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, .4);
-    padding: 6px 14px;
-    border-radius: 4px;
+.theme-icon {
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border: none;
     cursor: pointer;
 }
 
-.theme-dropdown {
-    position: absolute;
-    right: 0;
-    top: 110%;
-    background: rgba(0, 0, 0, .7);
-    border-radius: 4px;
-    overflow: hidden;
-    display: none;
-    flex-direction: column;
-    min-width: 100px;
+.theme-icon svg {
+    width: 28px;
+    height: 28px;
+    fill: #fff;
 }
 
-.theme-dropdown.show {
-    display: flex;
-}
-
-.theme-option {
-    padding: 8px 14px;
-    cursor: pointer;
-}
-
-.theme-option:hover {
-    background: rgba(255, 255, 255, .1);
-}
-
+/* ---------- 6. Hero Section ---------- */
 .hero {
     text-align: center;
-    padding: 100px 20px 80px;
+    padding: 125px 20px;
 }
 
 .avatar {
@@ -140,20 +235,30 @@ body.theme-light {
     height: 130px;
     margin: 0 auto 25px;
     border-radius: 50%;
-    background: #007bff;
+    background: var(--blue);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 48px;
+    box-shadow: 0 0 15px #001233bb;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .hero h1 {
+    color: var(--color-h1);
     font-size: 42px;
     margin-bottom: 10px;
 }
 
 .hero p {
-    font-size: 20px;
+    color: var(--color-p);
+    font-size: 16px;
     opacity: .8;
     margin-bottom: 30px;
 }
@@ -165,132 +270,481 @@ body.theme-light {
 }
 
 .btn {
-    background: #007bff;
-    border: none;
+    background: transparent;
+    backdrop-filter: blur(1px);
+    border: 1px solid var(--accent);
     padding: 12px 28px;
     border-radius: 25px;
+    color: var(--secondary);
     font-size: 16px;
+    text-decoration: none;
     cursor: pointer;
+    transition: all .3s cubic-bezier(.23, 1, .32, 1);
 }
 
-.btn-outline {
-    background: transparent;
-    border: 1px solid #007bff;
-    color: #007bff;
+.btn:hover {
+    background: var(--secondary);
+    color: #fff;
+    border: 0;
+    box-shadow: 0 0 15px var(--secondary);
 }
 
+/* ---------- 7. Common Sections ---------- */
 .section {
     padding: 80px 10%;
     max-width: 1000px;
     margin: auto;
 }
 
-.section h2 {
-    font-size: 32px;
-    margin-bottom: 30px;
+.section-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    width: 100%;
     text-align: center;
 }
 
-.advantages-grid,
-.skills-grid,
-.projects-grid {
+.section-title svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}
+
+.section-divider {
+    width: 60px;
+    height: 4px;
+    background: var(--secondary);
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+/* ---------- 8. About Grid ---------- */
+.about-grid {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.about-card {
+    background: var(--color-card);
+    backdrop-filter: blur(2px);
+    padding: 25px;
+    border-radius: 10px;
+    text-align: left;
+    transition: all .3s cubic-bezier(.23, 1, .32, 1);
+}
+
+.about-card:hover {
+    box-shadow: 0 8px 15px var(--color-shadow);
+    transform: translateY(-2px);
+}
+
+.about-card:last-child {
+    grid-column: 1 / -1;
+}
+
+/* ---------- 9. Skills ---------- */
+.skills h1 {
+    color: var(--color-h1);
+}
+
+.skills-grid {
     display: grid;
     gap: 25px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.advantage-card,
-.project-card {
-    background: rgba(255, 255, 255, .08);
-    padding: 25px;
+.skill-card {
+    background: var(--color-card);
+    backdrop-filter: blur(2px);
+    padding: 20px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all .3s cubic-bezier(.23, 1, .32, 1);
 }
 
-.project-image {
-    height: 160px;
-    background: #222;
-    border-radius: 6px;
-    display: flex;
+.skill-card h3 {
+    color: var(--color-h3);
+}
+
+.skill-card:hover {
+    box-shadow: 0 8px 15px var(--color-shadow);
+    transform: translateY(-2px);
+}
+
+.card-title {
+    display: inline-flex;
+    gap: 5px;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
+}
+
+.card-title svg {
+    width: 24px;
+    height: 24px;
+    color: var(--white);
+}
+
+.card-title h3 {
+    margin: 0;
+    font-size: 1rem;
+    text-align: left;
 }
 
 .skill-bar {
-    background: rgba(255, 255, 255, .15);
+    width: 100%;
     height: 8px;
     border-radius: 4px;
-    margin-top: 6px;
+    overflow: hidden;
 }
 
 .skill-progress {
     height: 100%;
-    background: #007bff;
+    background: var(--accent);
     border-radius: 4px;
 }
 
-.timeline {
+/* ---------- 10. Timeline & Experience ---------- */
+.timeline,
+.experience {
     position: relative;
     padding-left: 30px;
-    border-left: 2px solid rgba(255, 255, 255, .2);
+    border-left: 2px solid var(--secondary);
 }
 
-.timeline-item {
+.timeline-item,
+experience-item {
     margin-bottom: 30px;
 }
 
+.cert-grid {
+    display: grid;
+    gap: px;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+}
+
+.cert-card {
+    width: 130px;
+    height: 190px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(.23, 1, .32, 1);
+}
+
+.cert-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(.7);
+    transition: filter .3s;
+}
+
+.cert-hint {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, .7);
+    color: #fff;
+    text-align: center;
+    font-size: .9rem;
+    transition: bottom .3s;
+}
+
+.cert-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px var(--color-shadow);
+}
+
+.cert-card:hover img {
+    filter: brightness(1);
+}
+
+.cert-card:hover .cert-hint {
+    bottom: 0;
+}
+
+/* ---------- 11. Projects ---------- */
+.projects-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: auto;
+}
+
+.project-card {
+    position: relative;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--color-card);
+    backdrop-filter: blur(2px);
+    transition: all .3s cubic-bezier(.23, 1, .32, 1);
+}
+
+.project-card:hover {
+    box-shadow: 0 8px 15px var(--color-shadow);
+    transform: translateY(-2px);
+}
+
+.card__info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__banner {
+    position: relative;
+    height: 190px;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+}
+
+.card__banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--banner);
+    pointer-events: none;
+}
+
+.card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card__subtitle {
+    font-size: 14px;
+}
+
+.card__btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary);
+    opacity: 0.5;
+    padding: 4px 10px;
+    border: 1px solid;
+    border-radius: 13px;
+    font-size: 11px;
+    text-decoration: none;
+    transition: all .3s cubic-bezier(.23, 1, .32, 1);
+}
+
+.card__btn:hover {
+    color: var(--accent);
+    opacity: 1;
+}
+
+.card__btn-git {
+    border: 0;
+}
+
+.card__banner,
+.card__subtitle {
+    margin-bottom: 7px;
+}
+
+.card__btn,
+.card__wrapper {
+    margin-bottom: 10px;
+}
+
+/* ---------- 12. Footer ---------- */
 .footer {
     background: rgba(0, 0, 0, .2);
+    backdrop-filter: blur(2px);
     text-align: center;
     padding: 30px 0;
     margin-top: 70px;
     font-size: 14px;
 }
 
-.scroll-to-top {
+/* ---------- 13. Centering text elements ---------- */
+.about-card h3,
+.skills-grid h3,
+.timeline-item h3,
+.experience-item h3,
+.card__title h3 {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    size: 20px;
+}
+
+.about-card p,
+.timeline-item p,
+.experience-item p {
+    size: 18px;
+}
+
+.about-card svg,
+.skills-grid svg,
+.timeline-item svg,
+.experience-item svg,
+.card__title svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--color-svg);
+}
+
+/* ---------- 14. Scroll-to-top ---------- */
+.btn-to-top {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: #007bff;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
     border: none;
-    display: none;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: #fff;
     cursor: pointer;
+    box-shadow: 0 4px 15px var(--blue-light);
+    transition: all .3s cubic-bezier(.23, 1, .32, 1);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.scroll-to-top.show {
-    display: block;
+.btn-to-top svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
 }
 
-.theme-notification {
+.btn-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--secondary);
+}
+
+/* ---------- 15. Notifications ---------- */
+.notify {
     position: fixed;
     left: 20px;
     bottom: 20px;
-    background: rgba(0, 0, 0, .7);
-    padding: 12px 20px;
-    border-radius: 6px;
+    min-width: 220px;
+    max-width: 280px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 14px;
+    z-index: 9999;
+    transform: translateY(120%);
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity .4s, transform .4s;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    box-shadow: 0 0 15px #4090ff50;
 }
 
-.theme-notification.show {
-    opacity: 1;
+.notify.show {
     transform: translateY(0);
+    opacity: 1;
 }
 
-@media(max-width:600px) {
+.notify__info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 14px 16px;
+}
+
+.notify__icon svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    fill: var(--accent);
+}
+
+.notify__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.notify__progress-bar {
+    height: 3px;
+    background-color: #0d6efd;
+    width: 100%;
+    transform-origin: left;
+    transition: transform linear;
+}
+
+/* ---------- 16. Mobile ---------- */
+@media (max-width: 600px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card:last-child {
+        grid-column: 1;
+    }
+
     .nav-bar {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: space-between;
         gap: 10px;
     }
 
     .nav-links {
-        flex-wrap: wrap;
         gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 0;
+    }
+
+    .nav-links a svg,
+    .theme-toggle svg {
+        width: 22px;
+        height: 22px;
+        fill: #fff;
+    }
+
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3px;
+    }
+
+    .cert-card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1190/1684;
     }
 }

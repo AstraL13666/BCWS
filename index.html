@@ -1,174 +1,439 @@
 <!DOCTYPE html>
 <html lang="ru">
+<!-- 409 -->
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Сайт-визитка</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital@0;1&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <div class="background-animation" id="stars"></div>
 
     <header class="header">
-        <div class="logo">YourName</div>
+        <a class="logo" href="/">
+            <svg class="icon-header">
+                <use href="assets/svg/sprite.svg#suitcase"></use>
+            </svg>
+            <span>BCWS</span>
+        </a>
         <div class="contact-info">
-            <span>+7 (999) 123-45-67</span>
-            <span>📧</span><span>💼</span><span>📷</span>
-            <span>Москва, ул. Примерная 123</span>
+            <a href="tel:+79269267691" class="contact-link">
+                <svg class="icon-header">
+                    <use href="assets/svg/sprite.svg#phone"></use>
+                </svg>
+            </a>
+
+            <a href="https://wa.me/79269267691" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <svg class="icon-header">
+                    <use href="assets/svg/sprite.svg#whatsapp"></use>
+                </svg>
+            </a>
+
+            <a href="https://t.me/vlad_prin" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <svg class="icon-header">
+                    <use href="assets/svg/sprite.svg#telegram"></use>
+                </svg>
+            </a>
+
+            <a href="mailto:vlad13kotov@gmail.com" class="contact-link">
+                <svg class="icon-header">
+                    <use href="assets/svg/sprite.svg#mail"></use>
+                </svg>
+            </a>
         </div>
     </header>
 
     <nav class="nav-bar" id="navBar">
         <ul class="nav-links">
-            <li><a href="#about">Обо мне</a></li>
-            <li><a href="#advantages">Преимущества</a></li>
-            <li><a href="#skills">Навыки</a></li>
-            <li><a href="#education">Образование</a></li>
-            <li><a href="#experience">Опыт</a></li>
-            <li><a href="#projects">Проекты</a></li>
+            <li>
+                <a href="#about">
+                    <svg>
+                        <use href="assets/svg/sprite.svg#about"></use>
+                    </svg> О себе
+                </a>
+            </li>
+
+            <li>
+                <a href="#skills">
+                    <svg>
+                        <use href="assets/svg/sprite.svg#skills"></use>
+                    </svg> Навыки
+                </a>
+            </li>
+
+            <li>
+                <a href="#education">
+                    <svg>
+                        <use href="assets/svg/sprite.svg#education"></use>
+                    </svg> Образование
+                </a>
+            </li>
+
+            <li>
+                <a href="#experience">
+                    <svg>
+                        <use href="assets/svg/sprite.svg#experience"></use>
+                    </svg> Опыт
+                </a>
+            </li>
+
+            <li>
+                <a href="#projects">
+                    <svg>
+                        <use href="assets/svg/sprite.svg#projects"></use>
+                    </svg> Проекты
+                </a>
+            </li>
         </ul>
         <div class="theme-toggle">
-            <button class="theme-btn" onclick="toggleThemeMenu()">Тема</button>
-            <div class="theme-dropdown" id="themeMenu">
-                <div class="theme-option" onclick="setTheme('dark')">Тёмно-синяя</div>
-                <div class="theme-option" onclick="setTheme('gray')">Серая</div>
-                <div class="theme-option" onclick="setTheme('light')">Светлая</div>
-            </div>
+            <button class="theme-icon" id="themeButton" onclick="toggleThemeMenu()">
+                <svg>
+                    <use href="assets/svg/sprite.svg#moon" id="themeIconUse"></use>
+                </svg>
+            </button>
         </div>
     </nav>
 
     <section class="hero">
-        <div class="avatar">👤</div>
-        <h1>Иван Иванов</h1>
-        <p>Веб-разработчик & UI/UX дизайнер</p>
+        <div class="avatar">
+            <img src="assets/img/vladimir-avatar.png">
+        </div>
+
+        <h1>Владимир</h1>
+        <p>Всего по немногу</p>
+
         <div class="hero-buttons">
-            <button class="btn">Скачать CV</button>
-            <button class="btn btn-outline">Связаться</button>
+            <a class="btn" href="#projects">Мои проекты</a>
         </div>
     </section>
 
     <section class="section" id="about">
-        <h2>Обо мне</h2>
-        <p>Я опытный веб-разработчик с более чем 5-летним опытом создания современных и функциональных веб-приложений...
-        </p>
-    </section>
-    <section class="section" id="advantages">
-        <h2>Мои преимущества</h2>
-        <div class="advantages-grid">
-            <div class="advantage-card">
-                <h3>⚡ Быстрая разработка</h3>
-                <p>Эффективное использование современных инструментов</p>
+        <div class="section-block">
+            <h1 class="section-title">
+                <svg>
+                    <use href="assets/svg/sprite.svg#about"></use>
+                </svg>О себе
+            </h1>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>
+                    <svg>
+                        <use href="assets/svg/sprite.svg#responsibility"></use>
+                    </svg> Ответственность
+                </h3>
+                <p>Беру на себя обязательства своевременно выполнять поставленные задачи и нести полную ответственность
+                    за свои действия, и их последствия</p>
             </div>
-            <div class="advantage-card">
-                <h3>🎯 Внимание к деталям</h3>
-                <p>Качественная реализация сложных дизайнов</p>
+
+            <div class="about-card">
+                <h3>
+                    <svg>
+                        <use href="assets/svg/sprite.svg#communications"></use>
+                    </svg> Коммуникабельность
+                </h3>
+                <p>Привлекаю коллег, клиентов и руководство к обсуждению, чтобы совместно выявлять проблемы и находить
+                    инновационные решения, способствующие прогрессу</p>
             </div>
-            <div class="advantage-card">
-                <h3>📱 Адаптивность</h3>
-                <p>Отличная работа на всех устройствах</p>
+
+            <div class="about-card">
+                <h3>
+                    <svg>
+                        <use href="assets/svg/sprite.svg#purposefulness"></use>
+                    </svg> Целеустремленность
+                </h3>
+                <p>Ставлю четкие цели и неуклонно стремлюсь к ним, несмотря на все возникающие вызовы и сложности</p>
             </div>
-            <div class="advantage-card">
-                <h3>🤝 Коммуникация</h3>
-                <p>Прозрачный процесс и регулярные обновления</p>
+
+            <div class="about-card">
+                <h3>
+                    <svg>
+                        <use href="assets/svg/sprite.svg#detail"></use>
+                    </svg>Внимание к деталям
+                </h3>
+                <p>Сосредоточенность не только на крупных, но и на мелких деталях, что позволяет улучшить качество
+                    выполняемых задач и быстро добиться желаемой цели</p>
+            </div>
+
+            <div class="about-card">
+                <h3>
+                    <svg>
+                        <use href="assets/svg/sprite.svg#professional"></use>
+                    </svg> Профессионализм
+                </h3>
+                <p>Независимо от количества перечисленных качеств, именно профессионализм служит их интегратором и я
+                    постоянно стремлюсь поддерживать его высокий уровень</p>
             </div>
         </div>
     </section>
+
     <section class="section" id="skills">
-        <h2>Мои навыки</h2>
+        <div class="section-block">
+            <h1 class="section-title">
+                <svg>
+                    <use href="assets/svg/sprite.svg#skills"></use>
+                </svg> Мои навыки
+            </h1>
+        </div>
+
+        <div class="section-divider"></div>
+
         <div class="skills-grid">
-            <div>JavaScript<div class="skill-bar">
-                    <div class="skill-progress" style="width:90%"></div>
+            <div class="skill-card">
+                <div class="card-title">
+                    <svg>
+                        <use href="assets/svg/sprite.svg#os"></use>
+                    </svg>
+                    <h3>Операционные системы</h3>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width:79%"></div>
                 </div>
             </div>
-            <div>React<div class="skill-bar">
-                    <div class="skill-progress" style="width:85%"></div>
+
+            <div class="skill-card">
+                <div class="card-title">
+                    <svg>
+                        <use href="assets/svg/sprite.svg#network"></use>
+                    </svg>
+                    <h3>Сетевые технологии</h3>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width:9%"></div>
                 </div>
             </div>
-            <div>Node.js<div class="skill-bar">
+
+            <div class="skill-card">
+                <div class="card-title">
+                    <svg>
+                        <use href="assets/svg/sprite.svg#code"></use>
+                    </svg>
+                    <h3>Программирование</h3>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width:59%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-title">
+                    <svg>
+                        <use href="assets/svg/sprite.svg#repair"></use>
+                    </svg>
+                    <h3>Обслуживание / Ремонт</h3>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width:81%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-title">
+                    <svg>
+                        <use href="assets/svg/sprite.svg#system"></use>
+                    </svg>
+                    <h3>Системы / Сервисы</h3>
+                </div>
+
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width:7%"></div>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="card-title">
+                    <svg>
+                        <use href="assets/svg/sprite.svg#editor"></use>
+                    </svg>
+                    <h3>Видео -Фотошоп</h3>
+                </div>
+                <div class="skill-bar">
                     <div class="skill-progress" style="width:80%"></div>
                 </div>
             </div>
-            <div>CSS/SCSS<div class="skill-bar">
-                    <div class="skill-progress" style="width:95%"></div>
-                </div>
-            </div>
-            <div>UI/UX<div class="skill-bar">
-                    <div class="skill-progress" style="width:75%"></div>
-                </div>
-            </div>
-            <div>Git<div class="skill-bar">
-                    <div class="skill-progress" style="width:90%"></div>
-                </div>
-            </div>
-        </div>
     </section>
+
     <section class="section" id="education">
-        <h2>Образование</h2>
+        <div class="section-block">
+            <h1 class="section-title">
+                <svg>
+                    <use href="assets/svg/sprite.svg#education"></use>
+                </svg> Образование
+            </h1>
+        </div>
+
+        <div class="section-divider"></div>
+
         <div class="timeline">
             <div class="timeline-item">
-                <h3>Магистр информатики</h3>
-                <p>МГТУ им. Баумана, 2018-2020</p>
+                <h3>
+                    <svg>
+                        <use href="assets/svg/sprite.svg#school"></use>
+                    </svg> Средне-специальное образование
+                </h3>
+                <p>Не по технической специальности, но все фундаментальные знания в области информационных технологий я
+                    изучаю самостоятельно - повышая свой скилл, день за днем</p>
             </div>
+
             <div class="timeline-item">
-                <h3>Бакалавр прикладной математики</h3>
-                <p>МГУ им. Ломоносова, 2014-2018</p>
+                <h3>
+                    <svg>
+                        <use href="assets/svg/sprite.svg#college"></use>
+                    </svg> Профессиональное развитие
+                </h3>
+                <p>Изучаю новые технологии на постоянной основе, ведь прогресс не стоит на месте!</p>
+            </div>
+        </div>
+
+        <div class="cert-grid">
+            <div class="cert-card">
+                <img src="assets/img/edu-cert-1.png">
+                <span class="cert-hint">Python #1</span>
+            </div>
+
+            <div class="cert-card">
+                <img src="assets/img/edu-cert-2.png">
+                <span class="cert-hint">Python #2</span>
+            </div>
+
+            <div class="cert-card">
+                <img src="assets/img/edu-cert-adv.png">
+                <span class="cert-hint">Not studied</span>
+            </div>
+
+            <div class="cert-card">
+                <img src="assets/img/edu-cert-django.png">
+                <span class="cert-hint">Not studied</span>
+            </div>
+
+            <div class="cert-card">
+                <img src="assets/img/edu-cert-sql.png">
+                <span class="cert-hint">Not studied</span>
             </div>
         </div>
     </section>
+
     <section class="section" id="experience">
-        <h2>Опыт работы</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>Старший Frontend разработчик</h3>
-                <p>TechCorp, 2021-настоящее время</p>
+        <div class="section-block">
+            <h1 class="section-title">
+                <svg>
+                    <use href="assets/svg/sprite.svg#experience"></use>
+                </svg> Опыт работы
+            </h1>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="experience">
+            <div class="experience-item">
+                <h3>
+                    <svg>
+                        <use href="assets/svg/sprite.svg#monitor"></use>
+                    </svg> ПК - инженер
+                </h3>
+                <p>5.5 месяцев<br>Диагностика, ремонт и замена комплектующих<br>Настройка, обновление и оптимизация ОС
+                </p>
             </div>
-            <div class="timeline-item">
-                <h3>Middle Frontend разработчик</h3>
-                <p>WebStudio, 2019-2021</p>
+
+            <div class="experience-item">
+                <h3>
+                    <svg>
+                        <use href="assets/svg/sprite.svg#print-line"></use>
+                    </svg> МФУ - инженер
+                </h3>
+                <p>6 месяцев<br>Диагностика, ремонт и замена комплектующих различной сложности МФУ-устройств</p>
             </div>
-            <div class="timeline-item">
-                <h3>Junior Web разработчик</h3>
-                <p>StartUp, 2018-2019</p>
+
+            <div class="experience-item">
+                <h3>
+                    <svg>
+                        <use href="assets/svg/sprite.svg#freelance"></use>
+                    </svg> Freelance
+                </h3>
+                <p>sometimes<br>Консультация, обучение и создание различных проектов<br>Боты на Python, cайты, в том
+                    числе и на Tilda<br>Фото и Видео -редактирование</p>
             </div>
         </div>
     </section>
+
     <section class="section" id="projects">
-        <h2>Мои проекты</h2>
+        <div class="section-block">
+            <h1 class="section-title">
+                <svg>
+                    <use href="assets/svg/sprite.svg#projects"></use>
+                </svg> Мои проекты
+            </h1>
+        </div>
+
+        <div class="section-divider"></div>
+
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-image">Проект 1</div>
-                <h3>E-commerce платформа</h3>
-                <p>Современный онлайн-магазин с React и Node.js</p>
-            </div>
-            <div class="project-card">
-                <div class="project-image">Проект 2</div>
-                <h3>CRM система</h3>
-                <p>Управление клиентами и продажами</p>
-            </div>
-            <div class="project-card">
-                <div class="project-image">Проект 3</div>
-                <h3>Мобильное приложение</h3>
-                <p>React Native приложение для фитнес-трекинга</p>
+                <div class="card__banner">
+                    <img src="assets/img/garedenstorage.png" class="card__img">
+                </div>
+
+                <div class="card__info">
+                    <div class="card__title">
+                        <h3>
+                            <svg>
+                                <use href="assets/svg/sprite.svg#garden-store"></use>
+                            </svg> GardenStore
+                        </h3>
+                    </div>
+
+                    <div class="card__subtitle">
+                        <p>Мебельный интернет-магазин</p>
+                    </div>
+
+                    <div class="card__wrapper">
+                        <a class="card__btn" href="https://astral13666.github.io/Garden-store/">Open</a>
+                        <a class="card__btn card__btn-git" href="https://github.com/AstraL13666/Garden-store">GitHub</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2025 YourName. Все права защищены. Разработано с ❤️</p>
+        <p>&copy; 2025 Vladimir<br>Чьи-то права защищены. Разработано с ❤️</p>
     </footer>
 
-    <!-- Button to top site -->
-    <button class="scroll-to-top" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <button class="btn-to-top" id="btnTop" aria-label="Наверх">
+        <svg>
+            <use href="assets/svg/sprite.svg#back-top"></use>
+        </svg>
+    </button>
 
-    <!-- Notification of a topic change -->
-    <div class="theme-notification" id="notification"></div>
+    <!-- The idea is taken: https://uiverse.io/xerith_8140/stupid-panther-7 -->
+    <li class="notify">
+        <div class="notify__info" id="notification">
+            <div class="notify__icon">
+                <svg>
+                    <use href="assets/svg/sprite.svg#info"></use>
+                </svg>
+            </div>
 
-    <!-- sprite.svg connection -->
-    <object data="icons/sprite.svg" style="display:none;"></object>
+            <div class="notify__text"></div>
+        </div>
 
-    <!-- script.js connection -->
+        <div class="notify__progress-bar"></div>
+    </li>
+
+    <object type="image/svg+xml" data="assets/svg/sprite.svg" style="display:none;"></object>
+
     <script src="js/script.js"></script>
 
 </body>
