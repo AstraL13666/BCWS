@@ -292,7 +292,7 @@ p {
 /* ---------- 7. Common Sections ---------- */
 .section {
     padding: 80px 10%;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -490,7 +490,8 @@ experience-item {
 
 .project-card {
     position: relative;
-    width: 300px;
+    max-width: 300px;
+    height: 320px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
